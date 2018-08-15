@@ -2,7 +2,7 @@
   "name": "vue-nuxt",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "chenya <j1123236324@qq.com>",
+  "author": "chenya <1123236324@qq.com>",
   "private": true,
   "scripts": {
     "dev": "backpack dev",
