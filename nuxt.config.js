@@ -6,7 +6,10 @@ module.exports = {
   },
   build: {
     // 将重复引用的(第三方/自有)模块添加到vendor.bundle.js
-    vendor: ['axios'],
+    vendor: [
+      'axios',
+      'particles.js'
+    ],
     // postcss
     postcss: [
       require('postcss-nested')(),
@@ -15,7 +18,11 @@ module.exports = {
     ],
     // babel
     babel: {
-      presets: ['es2015', 'stage-2']
+      presets: ['es2015', 'stage-2'],
+      plugins: [
+        'transform-async-to-generator',
+        'transform-runtime'
+      ]
     }
   },
   dev: (process.env.NODE_ENV !== 'production'),
@@ -41,17 +48,22 @@ module.exports = {
       { innerHTML: 'This website requires JavaScript.' }
     ]
   },
+  // router
+  router: {
+    linkActiveClass: 'link-active'
+    // scrollBehavior (to, from, savedPosition) {
+    //   return { x: 0, y: 0 }
+    // }
+  },
   /*
   ** Global CSS
   */
   css: [
-    '~assets/css/main.css',
     '~assets/css/reset.css',
-    { src: '~assets/scss/common.scss', lang: 'scss' },
-    { src: '~assets/scss/mixin.scss', lang: 'scss' }
+    { src: '~assets/scss/index.scss', lang: 'scss' }
   ],
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' }
+  loading: { color: '#20A0FF' }
 }
