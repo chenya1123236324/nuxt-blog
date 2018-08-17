@@ -1,6 +1,6 @@
 <template>
   <div id='project'>
-    project
+   项目
   </div>
 </template>
 

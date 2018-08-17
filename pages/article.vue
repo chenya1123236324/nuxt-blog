@@ -1,6 +1,6 @@
 <template>
   <div id='article'>
-    article
+  文档页面
   </div>
 </template>
 
