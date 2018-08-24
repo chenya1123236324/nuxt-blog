@@ -332,6 +332,8 @@
 }
 
 
+
+
 // Transform-Style
 /// @param {List} $params - Params
 /// @require {mixin} css3-prefix
@@ -417,4 +419,10 @@
   content: '';
   position: absolute;
   display: block;
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

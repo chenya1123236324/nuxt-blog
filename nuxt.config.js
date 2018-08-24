@@ -57,18 +57,18 @@ module.exports = {
   },
   // plugins
   plugins: [
-    { src: '~plugins/swiper.js', ssr: false }
+    { src: '~plugins/swiper.js', ssr: false },
+    { src: '~plugins/clickOutside.js', ssr: false}
   ],
   /*
   ** Global CSS
   */
   css: [
     'swiper/dist/css/swiper.css',
-    // '~assets/css/reset.css',
     { src: '~assets/scss/index.scss', lang: 'scss' }
   ],
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#20A0FF' }
+  loading: { color: '#24292e' }
 }
