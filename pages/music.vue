@@ -1,13 +1,18 @@
 <template>
-  <div id='music'>
-   音乐
+  <div class="music">
+    music
   </div>
 </template>
 
 <script>
 export default {
   name: 'music',
-  transition: 'fade'
+
+  transition: 'fade',
+
+  head: {
+    title: 'music'
+  }
 }
 </script>
 

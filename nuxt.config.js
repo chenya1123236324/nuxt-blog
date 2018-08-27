@@ -30,7 +30,8 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: '陈亚',
+    titleTemplate: '%s | 陈亚',
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'cleartype', content: 'on' },
@@ -58,7 +59,8 @@ module.exports = {
   // plugins
   plugins: [
     { src: '~plugins/swiper.js', ssr: false },
-    { src: '~plugins/clickOutside.js', ssr: false}
+    { src: '~plugins/clickOutside.js', ssr: false },
+    { src: '~plugins/filter.js' }
   ],
   /*
   ** Global CSS

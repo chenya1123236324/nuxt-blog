@@ -24,18 +24,20 @@ export default {
 </script>
 
 <style lang="scss">
+
   @import '~assets/scss/variable.scss';
   @import '~assets/scss/mixin.scss';
 
   .carrousel {
-    height: 100%;
     position: relative;
+    margin-bottom: $normal-pad;
+    height: 100%;
     overflow: hidden;
     .swiper-pagination-bullet {
       opacity: .5;
     }
     .swiper-pagination-bullet-active {
-      background-color: lighten($black, .4);
+      background-color: lighten($black, 20%);
       opacity: 1;
     }
   }

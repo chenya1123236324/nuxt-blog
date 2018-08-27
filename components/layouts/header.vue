@@ -1,5 +1,5 @@
 <template>
-  <header id='header'>
+  <header v-fix>
     <div class="container header">
       <!-- <div class="header-left"> -->
         <div class="logo">
@@ -19,14 +19,6 @@
         </nav>
       <div class="saying">
         <carrousel :option="swiperOption" type="text" :con="saying"></carrousel>
-        <!-- <div v-swiper:mySwiper="swiperOption" class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide item" v-for="list in says" :key="list">
-              <p class="saying-content">{{ list.content }}</p>
-              <p class="saying-author">{{ list.author }}</p>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </header>
@@ -36,6 +28,7 @@
 
 import carrousel from '~components/common/carrousel.vue'
 import saying from '~assets/saying/index.js'
+
 export default {
   name: 'header',
   data () {
@@ -44,11 +37,11 @@ export default {
       open: false,
       nav: [
         { path: '/', name: 'HOME'},
-        { path: '/article', name: 'ARTICLE'},
         { path: '/think', name: 'THINK'},
         { path: '/music', name: 'MUSIC'},
         { path: '/project', name: 'PROJECT'},
-        { path: '/about', name: 'ABOUT'}
+        { path: '/about', name: 'ABOUT'},
+        { path: '/heroes', name: 'HEROES'}
       ],
       saying,
       swiperOption: {
@@ -66,7 +59,21 @@ export default {
       }
     }
   },
-  components: { carrousel }
+  components: { carrousel },
+  directives: {
+    fix: {
+      inserted (el) {
+        window.addEventListener('scroll', _ => {
+          const top = document.body.scrollTop
+          if (top > 64) el.classList.add('draken')
+          else el.classList.remove('draken')
+        })
+      },
+      unbind () {
+        window.onscroll = null
+      }
+    }
+  }
 }
 </script>
 
@@ -75,7 +82,8 @@ export default {
 @import '~assets/scss/variable.scss';
 @import '~assets/scss/mixin.scss';
 
-#header {
+
+header {
   position: fixed;
   top: 0;
   z-index: 999;
@@ -83,6 +91,14 @@ export default {
   height: $header-height;
   background: $module-bg;
   @include box-shadow(0, 1px, 2px, rgba(0,0,0,.05));
+
+  &:hover {
+    background: $white;
+  }
+
+  &.draken {
+    background: $white;
+  }
 
   .header {
     display: flex;
@@ -120,13 +136,13 @@ export default {
   }
 
   .saying {
-    width: 20rem;
+    width: 20.3rem;
     font-size: $font-size-small;
-    line-height: 1rem;
+    line-height: $normal-pad;
     overflow: hidden;
 
     .swiper {
-      height: 100%;
+      height: $header-height;
       color: $dividers;
 
       .item {

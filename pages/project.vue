@@ -1,13 +1,18 @@
 <template>
-  <div id='project'>
-   项目
+  <div class="project">
+    project
   </div>
 </template>
 
 <script>
 export default {
   name: 'project',
-  transition: 'fade'
+
+  transition: 'fade',
+
+  head: {
+    title: 'Project'
+  }
 }
 </script>
 

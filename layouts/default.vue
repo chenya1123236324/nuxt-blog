@@ -2,7 +2,7 @@
   <div>
     <my-header></my-header>
     <background></background>
-    <div class="container">
+    <div class="container clearfix">
       <div class="content-left">
         <nuxt></nuxt>
       </div>
@@ -26,11 +26,6 @@ export default {
     myHeader,
     background,
     asideView
-  },
-  watch: {
-    '$route' (to, form, next) {
-      console.log(to)
-    }
   }
 }
 </script>
@@ -44,7 +39,7 @@ export default {
 }
 
 .content-right {
-  width: 20rem;
+  width: 20.5rem;
   float: right;
 }
 </style>

@@ -1,21 +1,19 @@
 <template>
-  <div class="about">
-    about
+  <div class="heroes">
+    heroes
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'about',
+  name: 'heroes',
 
   transition: 'fade',
 
   head: {
-    title: 'About'
+    title: 'Heroes'
   }
 }
-
 </script>
 
 <style scoped lang="scss">
