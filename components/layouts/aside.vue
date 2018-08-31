@@ -11,7 +11,8 @@
             v-model="keyword"
             placeholder="search..."
             ref="search"
-            @keyup.enter="search" />
+            @keyup.enter="search" 
+            :maxlength="10"/>
           <div class="eks" @click.stop="search"></div>
         </div>
       </div>
@@ -197,7 +198,8 @@ export default {
 
     >input {
       position: absolute;
-      padding: .5rem 2.5rem .5rem .5rem;      
+      padding: .5rem 2.5rem .5rem .5rem; 
+      line-height: 1rem;     
       background: $light-dark;
       opacity: 1;
       @include transition-delay(.05s);
