@@ -2,17 +2,14 @@
   <section  class="clearfix main">
     <carrousel :option="swiperOption" type="banner" :con="banners" :class="{ mobile: mobileLayout }"></carrousel>
     <div class="article">
-      <articleView :articleList = "list"></articleView>
+      <articleView
+        :articleList = "list"
+        :haveMoreArt="haveMoreArt"
+        @loadMore="loadMore"></articleView>
     </div>
   </section>
 </template>
 <script>
-
-import banner1 from '~static/images/banner1.png'
-import banner2 from '~static/images/banner2.png'
-import banner3 from '~static/images/banner3.png'
-import banner4 from '~static/images/banner4.png'
-import banner5 from '~static/images/banner5.png'
 
 import carrousel from '~components/common/carrousel.vue'
 import articleView from '~components/common/article.vue'
@@ -24,7 +21,7 @@ export default {
   transition: 'fade',
 
   fetch ({ store }) {
-    return store.dispatch('getArtList')
+    return store.dispatch('getArtList', { type: 'code' })
   },
 
   data () {
@@ -41,7 +38,6 @@ export default {
         preloadImages: false,
         lazyLoading: true
       },
-      // banners: [ banner1, banner2, banner3, banner4, banner5 ]
     }
   },
 
@@ -56,14 +52,26 @@ export default {
 
     banners () {
       return this.list.slice(0, 9)
+    },
+
+    haveMoreArt () {
+      return this.$store.state.article.art.pagination.current_page
+              === this.$store.state.article.art.pagination.total_page
     }
   },
 
   components: {
     carrousel,
     articleView
-  }
+  },
 
+  methods: {
+    loadMore () {
+      this.$store.dispatch('getArtList', {
+        current_page: this.$store.state.article.art.pagination.current_page + 1
+      })
+    }
+  }
 }
 </script>
 
