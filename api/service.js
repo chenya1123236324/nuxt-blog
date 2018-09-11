@@ -38,10 +38,11 @@ export function getArts (params) {
 
 // 获取单个文章
 export function getArt (data) {
-  return ax.get(`/article/${data._id}`)
+  return ax.get(`/article/${data.id}`)
         .then(res => res.data)
 }
 
 export function likeArt (data) {
-  return ax.puthArt('')
+  return ax.post(`/like`, data)
+          .then(res => res.data)
 }

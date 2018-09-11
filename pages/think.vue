@@ -28,7 +28,7 @@ export default {
   transition: 'fade',
 
   fetch ({ store }) {
-    return store.dispatch('getArtList', { type: 'think' })
+    return store.dispatch('getArtList', { type: 2 })
   },
 
   data () {
@@ -59,7 +59,8 @@ export default {
   methods: {
     loadMore () {
       this.$store.dispatch('getArtList', {
-        current_page: this.$store.state.article.art.pagination.current_page + 1
+        current_page: this.$store.state.article.art.pagination.current_page + 1,
+        type: 2
       })
     }
   }
